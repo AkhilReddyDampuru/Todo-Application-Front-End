@@ -1,0 +1,42 @@
+/* styles.module.css */
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-right: 20px; /* Add right padding for the 20px margin */
+}
+
+.textfield {
+  width: 90%; /* Set initial width to 100% */
+  margin-bottom: 20px;
+  margin-left: 50px; /* Adjusted margin-left to 50px */
+}
+
+.addButton {
+  position: fixed;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  left: 50px;
+}
+
+/* Media Queries for Textfield Width */
+@media (max-width: 400px) {
+  .textfield {
+    width: calc(100% - 40px); /* Adjust for smaller screens */
+  }
+}
+
+@media (min-width: 401px) and (max-width: 900px) {
+  .textfield {
+    width: calc(100% - 60px); /* Adjust for medium screens */
+  }
+}
+
+@media (min-width: 901px) {
+  .textfield {
+    width: 1000px; /* Fixed width for screens above 700px */
+    margin-left: 50px;
+  }
+}

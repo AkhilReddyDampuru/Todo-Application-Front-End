@@ -1,0 +1,24 @@
+.card-container {
+  margin-top: 50px;
+  width: 100%; /* Set width to 100% */
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+@media (max-width: 400px) {
+  .card-container {
+    width: calc(100% - 60px); /* Adjust for smaller screens */
+  }
+}
+
+@media (min-width: 401px) and (max-width: 900px) {
+  .card-container {
+    width: calc(100% - 80px); /* Adjust for medium screens */
+  }
+}
+
+@media (min-width: 901px) {
+  .card-container {
+    width: 1200px; /* Increased width for screens above 900px */
+  }
+}
