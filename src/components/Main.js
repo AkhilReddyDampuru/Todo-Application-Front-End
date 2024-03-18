@@ -131,7 +131,7 @@ function Main() {
         previousLabel="< "
         renderOnZeroPageCount={null}
         marginPagesDisplayed={2}
-        containerClassName="pagination "
+        containerClassName="pagination"
         pageClassName="page-item"
         pageLinkClassName="page-link"
         previousClassName="page-item"
