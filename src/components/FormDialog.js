@@ -53,7 +53,11 @@ export default function FormDialog({ open, setOpen, editvalue, handleupdate }) {
           <Button variant="contained" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="contained" onClick={handleupdatetolist}>
+          <Button
+            variant="contained"
+            disabled={editedTodo.length === 0}
+            onClick={handleupdatetolist}
+          >
             Update TodoList
           </Button>
         </DialogActions>
