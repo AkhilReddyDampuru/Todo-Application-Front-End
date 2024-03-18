@@ -5,6 +5,7 @@ import instance from "../services/axiosiinstancce";
 import InputForm from "./InputForm";
 import CardList from "./CardList";
 import FormDialog from "./FormDialog";
+import "../css/pagination.css";
 function Main() {
   const [inputFieldData, setInputField] = useState("");
   const [open, setOpen] = useState(false);
