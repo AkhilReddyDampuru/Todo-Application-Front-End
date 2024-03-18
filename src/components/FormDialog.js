@@ -10,7 +10,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 export default function FormDialog({ open, setOpen, editvalue, handleupdate }) {
   const [editedTodo, setEditedTodo] = React.useState("");
 
-  
   React.useEffect(() => {
     setEditedTodo(editvalue.todovalue);
   }, [open, editvalue.todovalue]);
@@ -25,9 +24,7 @@ export default function FormDialog({ open, setOpen, editvalue, handleupdate }) {
 
   const handleupdatetolist = () => {
     handleupdate(editedTodo, editvalue.index);
-    // console.log(editedTodo, editvalue.index);
 
-    // Close the dialog
     setOpen(false);
   };
 
