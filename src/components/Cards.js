@@ -1,11 +1,80 @@
+// import React from "react";
+// import Paper from "@mui/material/Paper";
+// import { Button } from "@mui/material";
+// import Typography from "@mui/material/Typography";
+// import "../css/cards.css";
+// function Cards({ index, todo, deleteHandler, handledit }) {
+//   return (
+//     <div className="card-contaner" style={{ marginLeft: "50px" }}>
+//       <Paper
+//         elevation={5}
+//         sx={{
+//           height: "60px",
+//           width: "70%",
+//           backgroundColor: "#fff",
+//           marginBottom: "4px",
+//         }}
+//         square={false}
+//       >
+//         <div
+//           style={{
+//             display: "flex",
+//             justifyContent: "space-between",
+//             alignItems: "center",
+//           }}
+//         >
+//           <Typography
+//             variant="h6"
+//             style={{
+//               marginLeft: "10px",
+//               marginTop: "12px",
+//               marginRight: "20px",
+//             }}
+//             gutterBottom
+//           >
+//             {todo}
+//           </Typography>
+//           <div>
+//             <Button
+//               variant="contained"
+//               style={{
+//                 marginLeft: "20px",
+//                 marginTop: "12px",
+//                 marginRight: "20px",
+//               }}
+//               onClick={deleteHandler}
+//             >
+//               Finished
+//             </Button>
+//             <Button
+//               variant="contained"
+//               style={{
+//                 marginLeft: "20px",
+//                 marginTop: "12px",
+//                 marginRight: "20px",
+//               }}
+//               onClick={() => handledit(todo, index)}
+//             >
+//               Edit
+//             </Button>
+//           </div>
+//         </div>
+//       </Paper>
+//     </div>
+//   );
+// }
+
+// export default Cards;
+
 import React from "react";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import "../css/cards.css";
+
 function Cards({ index, todo, deleteHandler, handledit }) {
   return (
-    <div className="card-contaner" style={{ marginLeft: "50px" }}>
+    <div className="card-container">
       <Paper
         elevation={5}
         sx={{
@@ -13,51 +82,42 @@ function Cards({ index, todo, deleteHandler, handledit }) {
           width: "70%",
           backgroundColor: "#fff",
           marginBottom: "4px",
+          display: "flex",
+          justifyContent: "space-between",
+          overflowx: "auto",
         }}
         square={false}
       >
-        <div
+        <Typography
+          variant="h6"
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            marginLeft: "10px",
+            marginTop: "12px",
+            marginRight: "20px",
+            flex: "1 1 60%",
+            whiteSpace: "nowrap",
+            overflow: "auto",
+            textOverflow: "ellipsis",
           }}
+          gutterBottom
         >
-          <Typography
-            variant="h6"
-            style={{
-              marginLeft: "10px",
-              marginTop: "12px",
-              marginRight: "20px",
-            }}
-            gutterBottom
+          {todo}
+        </Typography>
+        <div style={{ flex: "0 1 40%", display: "flex", alignItems: "center" }}>
+          <Button
+            variant="contained"
+            style={{ marginLeft: "20px", marginRight: "20px" }}
+            onClick={deleteHandler}
           >
-            {todo}
-          </Typography>
-          <div>
-            <Button
-              variant="contained"
-              style={{
-                marginLeft: "20px",
-                marginTop: "12px",
-                marginRight: "20px",
-              }}
-              onClick={deleteHandler}
-            >
-              Finished
-            </Button>
-            <Button
-              variant="contained"
-              style={{
-                marginLeft: "20px",
-                marginTop: "12px",
-                marginRight: "20px",
-              }}
-              onClick={() => handledit(todo, index)}
-            >
-              Edit
-            </Button>
-          </div>
+            Finished
+          </Button>
+          <Button
+            variant="contained"
+            style={{ marginLeft: "20px", marginRight: "20px" }}
+            onClick={() => handledit(todo, index)}
+          >
+            Edit
+          </Button>
         </div>
       </Paper>
     </div>
