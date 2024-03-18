@@ -5,7 +5,7 @@ import InputForm from "./InputForm";
 import CardList from "./CardList";
 import Pagination from "./Pagination";
 import FormDialog from "./FormDialog";
-function Input() {
+function Main() {
   const [inputFieldData, setInputField] = useState("");
   const [open, setOpen] = useState(false);
   const [editvalue, setEditvalue] = useState({ todovalue: "", index: null });
@@ -139,4 +139,4 @@ function Input() {
   );
 }
 
-export default Input;
+export default Main;
