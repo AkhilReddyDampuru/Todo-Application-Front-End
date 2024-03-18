@@ -74,7 +74,7 @@ import "../css/cards.css";
 
 function Cards({ index, todo, deleteHandler, handledit }) {
   return (
-    <div className="card-container">
+    <div className="card-container" style={{ marginLeft: "50px" }}>
       <Paper
         elevation={5}
         sx={{
@@ -95,7 +95,7 @@ function Cards({ index, todo, deleteHandler, handledit }) {
             marginTop: "12px",
             marginRight: "20px",
             flex: "1 1 60%",
-            whiteSpace: "nowrap",
+            whiteSpace: "wrap",
             overflow: "auto",
             textOverflow: "ellipsis",
           }}
