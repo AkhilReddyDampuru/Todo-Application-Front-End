@@ -5,9 +5,7 @@ import instance from "../services/axiosiinstancce";
 import InputForm from "./InputForm";
 import CardList from "./CardList";
 import FormDialog from "./FormDialog";
-import "../css/pagination.css";
-
-function Input() {
+function Main() {
   const [inputFieldData, setInputField] = useState("");
   const [open, setOpen] = useState(false);
   const [editValue, setEditValue] = useState({ todovalue: "", index: null });
@@ -154,4 +152,4 @@ function Input() {
   );
 }
 
-export default Input;
+export default Main;
