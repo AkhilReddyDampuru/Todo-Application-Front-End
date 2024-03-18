@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Typography from "@mui/material/Typography";
+import ReactPaginate from "react-paginate";
 import instance from "../services/axiosiinstancce";
 import InputForm from "./InputForm";
 import CardList from "./CardList";
-import Pagination from "./Pagination";
 import FormDialog from "./FormDialog";
+import "../css/pagination.css";
+
 function Input() {
   const [inputFieldData, setInputField] = useState("");
   const [open, setOpen] = useState(false);
-  const [editvalue, setEditvalue] = useState({ todovalue: "", index: null });
+  const [editValue, setEditValue] = useState({ todovalue: "", index: null });
   const [data, setData] = useState([]);
   const [limit] = useState(5);
   const [pageCount, setPageCount] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
+  const currentPage = useRef(1);
 
   useEffect(() => {
     getPaginatedUsers();
@@ -52,13 +54,13 @@ function Input() {
   const handleEditClick = (value, index) => {
     setOpen(true);
     console.log(value, index);
-    setEditvalue({
+    setEditValue({
       todovalue: value.title,
       index: value._id,
     });
   };
 
-  const handleupdate = (value, index) => {
+  const handleUpdate = (value, index) => {
     instance
       .put(`/tasks/${index}`, {
         title: value,
@@ -74,13 +76,12 @@ function Input() {
   };
 
   const handlePageClick = (selectedPage) => {
-    setCurrentPage(selectedPage + 1);
+    currentPage.current = selectedPage + 1;
     getPaginatedUsers();
   };
-
   function getPaginatedUsers() {
     instance
-      .get(`/tasks?page=${currentPage}&limit=${limit}`)
+      .get(`/tasks?page=${currentPage.current}&limit=${limit}`)
       .then((res) => {
         console.log(res.data, "userData");
         setPageCount(res.data.pageCount);
@@ -122,17 +123,31 @@ function Input() {
         handleDeleteClick={handleDeleteClick}
         handleEditClick={handleEditClick}
       />
-      <Pagination
-        handlePageClick={handlePageClick}
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=" >"
+        onPageChange={({ selected }) => handlePageClick(selected)}
+        pageRangeDisplayed={5}
         pageCount={pageCount}
-        currentPage={currentPage}
+        previousLabel="< "
+        renderOnZeroPageCount={null}
+        marginPagesDisplayed={2}
+        containerClassName="pagination justify-content-center"
+        pageClassName="page-item"
+        pageLinkClassName="page-link"
+        previousClassName="page-item"
+        previousLinkClassName="page-link"
+        nextClassName="page-item"
+        nextLinkClassName="page-link"
+        activeClassName="active"
+        forcePage={currentPage.current - 1}
       />
       {open && (
         <FormDialog
           open={open}
           setOpen={setOpen}
-          editvalue={editvalue}
-          handleupdate={handleupdate}
+          editvalue={editValue}
+          handleupdate={handleUpdate}
         />
       )}
     </div>
